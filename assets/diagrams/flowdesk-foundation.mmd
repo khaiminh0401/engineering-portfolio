@@ -1,0 +1,7 @@
+flowchart LR
+    User[Browser user] --> SPA[Angular SPA and lazy dashboard]
+    SPA --> Proxy[Angular development proxy]
+    Proxy --> Info[Spring Boot info endpoint]
+    Proxy --> Health[Actuator health endpoint]
+    Health --> DB[(PostgreSQL 17)]
+    Migration[Flyway V1 at startup] --> DB
