@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor User
+    participant App as Application service
+    participant Auth as Authorization
+    participant Data as Approved context source
+    participant Model as Model adapter
+    participant Check as Output validation
+    User->>App: Request a draft
+    App->>Auth: Check operation and context permissions
+    alt Access allowed
+        App->>Data: Read permitted context
+        Data-->>App: Minimal scoped context
+        App->>Model: Versioned prompt within deadline
+        Model-->>App: Candidate output or provider failure
+        App->>Check: Check schema and business constraints
+        Check-->>App: Validated draft or bounded failure
+        App-->>User: Reviewable draft or fallback state
+    else Access denied
+        App-->>User: Deny without model invocation
+    end

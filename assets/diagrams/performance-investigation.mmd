@@ -1,0 +1,9 @@
+flowchart LR
+    Load[Controlled offered load] --> API[API request and queue timing]
+    API --> Pool[Connection acquisition timing]
+    Pool --> SQL[Query and lock timing]
+    API --> Dependency[Downstream timing if present]
+    API -.-> Metrics[Correlated traces and metrics]
+    Pool -.-> Metrics
+    SQL -.-> Metrics
+    Dependency -.-> Metrics

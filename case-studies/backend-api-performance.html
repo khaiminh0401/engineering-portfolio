@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Improving Data Synchronization Across Microservices | Dao Khai Minh</title><meta name="description" content="Improving Data Synchronization Across Microservices. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio.">
+<meta name="theme-color" content="#153d37"><meta property="og:title" content="Improving Data Synchronization Across Microservices | Dao Khai Minh"><meta property="og:description" content="Improving Data Synchronization Across Microservices. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio."><meta property="og:type" content="article"><meta property="og:url" content="https://khaiminh0401.github.io/engineering-portfolio/case-studies/backend-api-performance.html">
+<link rel="canonical" href="https://khaiminh0401.github.io/engineering-portfolio/case-studies/backend-api-performance.html"><link rel="icon" href="/engineering-portfolio/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/engineering-portfolio/assets/style.css">
+</head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="/engineering-portfolio/" aria-label="Dao Khai Minh home"><span class="brand-mark">DKM<span></span></span><span>DAO KHAI MINH<small>SOFTWARE ENGINEER</small></span></a>
+<button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">+</span></button>
+<nav id="navigation" aria-label="Main navigation"><a href="/engineering-portfolio/#work">Work</a><a href="/engineering-portfolio/#writing">Case studies</a><a href="/engineering-portfolio/#experience">Experience</a><a href="/engineering-portfolio/#contact">Contact</a><a class="nav-resume" href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Resume <span aria-hidden="true">↗</span></a></nav></header>
+
+<main id="main"><div class="article-hero wrap"><a class="back-link" href="/engineering-portfolio/#writing">← Back to portfolio</a><p class="eyebrow">ENGINEERING CASE STUDY</p><h1>Improving Data Synchronization Across Microservices</h1><div class="article-meta"><span>DAO KHAI MINH</span><span>Evidence and limitations included</span><a href="https://github.com/khaiminh0401/engineering-portfolio/blob/main/case-studies/backend-api-performance.md">Read on GitHub ↗</a></div></div>
+<div class="article-grid wrap"><aside class="article-toc"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Article contents"><a href="#1-context">1. Context</a><a href="#2-problem-statement">2. Problem Statement</a><a href="#3-technical-constraints">3. Technical Constraints</a><a href="#4-investigation-and-reasoning">4. Investigation and Reasoning</a><a href="#5-architecture--design-options">5. Architecture / Design Options</a><a href="#6-selected-approach">6. Selected Approach</a><a href="#7-implementation-details">7. Implementation Details</a><a href="#8-trade-offs">8. Trade-offs</a><a href="#9-validation-and-evaluation">9. Validation and Evaluation</a><a href="#10-lessons-learned">10. Lessons Learned</a></nav><a class="toc-evidence" href="/engineering-portfolio/evidence.html">Evidence registry ↗</a></aside><article class="prose"><p><a href="/engineering-portfolio/">Portfolio</a> · <a href="/engineering-portfolio/evidence.html">Evidence</a> · <a href="/engineering-portfolio/traceability.html">Traceability</a></p>
+<p><strong>Focus:</strong> Backend performance investigation, service decoupling and asynchronous processing.</p>
+<p><strong>Draft.</strong> Based on candidate-confirmed professional experience at VNPT. The candidate confirmed the workflow, caching, trace analysis, index-usage checks, lifecycle review and the direction of decoupling/asynchronous processing. Production measurements and the exact deployed execution mechanism are not included. Section 7 describes proposed design responsibilities, not individually verified implementation claims.</p>
+<h2 id="1-context">1. Context</h2>
+<p>At VNPT Information Technology Center, I worked on APIs responsible for synchronizing or initializing multiple layers of application data in a microservices environment.</p>
+<p>These workflows involved service-to-service communication and database operations. As traffic increased, the execution path encountered problems involving transaction handling, downstream rate limits and query behavior.</p>
+<p>My responsibility was to investigate the bottlenecks, address implementation-level issues and determine whether the workflow required an architectural change.</p>
+<h2 id="2-problem-statement">2. Problem Statement</h2>
+<p>The challenge was to improve the behavior of a multi-service workflow under increased traffic.</p>
+<p>Optimizing an individual API or query could address part of the problem, but the investigation also needed to consider how services depended on one another and how work was coordinated across the complete operation.</p>
+<p>The architectural question was whether the workflow could continue within the existing interaction model or needed decoupling and asynchronous execution. The precise transaction failure mode and query-related root cause are not specified in this public account.</p>
+<h2 id="3-technical-constraints">3. Technical Constraints</h2>
+<p>The solution needed to account for:</p>
+<ul>
+<li>Existing infrastructure and the team&#39;s ability to operate it.</li>
+<li>Downstream service capacity and rate limits.</li>
+<li>Dependencies between the data layers being initialized or synchronized.</li>
+<li>Transaction behavior and recovery from incomplete operations.</li>
+<li>The implementation and operational cost of introducing another processing mechanism.</li>
+</ul>
+<p>Workload size influenced the decision, alongside reliability requirements and service ownership.</p>
+<h2 id="4-investigation-and-reasoning">4. Investigation and Reasoning</h2>
+<p>I approached the problem incrementally.</p>
+<p>First, I applied caching where appropriate. I then analyzed traces to locate bottlenecks across the execution path and prioritize corrective work.</p>
+<p>At the database layer, I checked whether relevant indexes were actually being used. The existence of an index alone was insufficient to establish that it benefited the affected query.</p>
+<p>I also reviewed the relevant code and its lifecycle behavior. This helped assess whether targeted implementation changes could address the problem before considering a broader redesign.</p>
+<p>The investigation led to a focus on decoupling and asynchronous processing as the architectural direction.</p>
+<h2 id="5-architecture--design-options">5. Architecture / Design Options</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr><th>Option</th><th>Purpose</th><th>Main consideration</th></tr></thead><tbody><tr><td>Caching and targeted query/code improvements</td><td>Address repeated work and localized bottlenecks</td><td>May leave service coordination constraints unresolved</td></tr><tr><td>Background jobs</td><td>Move suitable work outside the request path with lower infrastructure overhead</td><td>Requires appropriate persistence, concurrency and recovery behavior</td></tr><tr><td>Message broker</td><td>Separate producers and consumers across service boundaries</td><td>Adds messaging infrastructure and delivery-management responsibilities</td></tr></tbody></table></div><p>These options addressed different layers of the problem. Caching and query improvements could remain useful alongside an asynchronous workflow.</p>
+<h2 id="6-selected-approach">6. Selected Approach</h2>
+<p>I selected decoupling and asynchronous processing as the direction for reducing dependencies in the execution path.</p>
+<p>The processing mechanism depended on the system&#39;s infrastructure and operational requirements. For moderate workloads, a background-job approach could provide sufficient separation without introducing a new messaging platform.</p>
+<p>For larger workloads, or where services needed independent processing and scaling, a message broker became an option worth the additional operational cost.</p>
+<p>The decision principle was to use the simplest mechanism that satisfied the workflow&#39;s requirements. Traffic volume alone did not determine the choice. This account describes the selection criteria; it does not claim that both mechanisms were deployed.</p>
+<h2 id="7-implementation-details">7. Implementation Details</h2>
+<h3 id="solution-design">Solution design</h3>
+<p>The architectural direction separated request handling from longer-running synchronization or initialization work.</p>
+<p>The following responsibilities define the proposed execution model; they should not be interpreted as individually verified implementation claims:</p>
+<ul>
+<li><strong>Work acceptance:</strong> validate the operation and establish when it has been safely accepted.</li>
+<li><strong>Execution control:</strong> bound concurrency according to downstream capacity.</li>
+<li><strong>Dependency management:</strong> preserve ordering between dependent data layers while allowing independent work to run concurrently where appropriate.</li>
+<li><strong>Transaction ownership:</strong> define local transaction boundaries and handle cross-service partial completion explicitly.</li>
+<li><strong>Recovery:</strong> distinguish retryable failures from permanent failures and prevent unintended duplicate effects.</li>
+<li><strong>Visibility:</strong> expose operation status and correlate request handling with background execution.</li>
+</ul>
+<p>Moving work to an asynchronous path changes where requests wait. It still requires explicit capacity and failure management.</p>
+<p>No employer code, private topology or production configuration is included. FlowDesk is a separate personal project and is not evidence of this production implementation.</p>
+<h2 id="8-trade-offs">8. Trade-offs</h2>
+<p>Background jobs can reduce infrastructure overhead, but their reliability depends on the job mechanism&#39;s persistence and recovery capabilities.</p>
+<p>A message broker can support stronger operational separation between services, while introducing concerns such as acknowledgement, redelivery, duplicate processing and consumer monitoring.</p>
+<p>Both approaches introduce a distinction between accepting an operation and completing it. Callers may need progress reporting and clear failure states.</p>
+<p>Caching also introduces freshness and invalidation considerations. Its role must remain compatible with the correctness requirements of synchronization and initialization.</p>
+<h2 id="9-validation-and-evaluation">9. Validation and Evaluation</h2>
+<p>Trace analysis and index-usage checks were part of my investigation. No quantitative before-and-after results are available for this public case study.</p>
+<p>A complete evaluation should compare equivalent workloads and distinguish API response time from end-to-end operation completion time.</p>
+<p>Relevant observations include:</p>
+<ul>
+<li>Completed operations and pending-work age.</li>
+<li>Downstream rate-limit responses and transaction-related failures.</li>
+<li>Database query duration and connection contention.</li>
+<li>Retry volume and duplicate processing.</li>
+<li>Recovery after interruption or a traffic spike.</li>
+<li>Correctness of partially completed and repeated operations.</li>
+</ul>
+<p>An improvement in request response time alone would not establish that the overall workflow had become faster or more reliable. These are evaluation requirements, not reported production results.</p>
+<h2 id="10-lessons-learned">10. Lessons Learned</h2>
+<p>The experience reinforced an incremental approach to architectural decisions: apply suitable caching, inspect traces, verify query and index behavior, and review code lifecycle before determining the scope of change.</p>
+<p>Decoupling and asynchronous processing became the architectural direction after examining those layers.</p>
+<p>The key judgment was selecting an execution model that matched the existing infrastructure, workload and recovery requirements. Background jobs and message brokers represented different operational choices, with different costs and responsibilities.</p>
+</article></div>
+<section class="article-next wrap"><p class="eyebrow">KEEP EXPLORING</p><a href="/engineering-portfolio/#writing">More engineering case studies <span>↗</span></a><a href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Download resume <span>↓</span></a></section></main>
+<footer class="site-footer"><a href="/engineering-portfolio/">DAO KHAI MINH</a><span>Java · Spring Boot · Angular</span><a href="https://github.com/khaiminh0401/engineering-portfolio">View portfolio source <span aria-hidden="true">↗</span></a><span>© 2026</span></footer>
+<script type="module" src="/engineering-portfolio/assets/site.js"></script>
+</body></html>

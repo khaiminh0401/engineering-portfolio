@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture views | Dao Khai Minh</title><meta name="description" content="Architecture views. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio.">
+<meta name="theme-color" content="#153d37"><meta property="og:title" content="Architecture views | Dao Khai Minh"><meta property="og:description" content="Architecture views. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio."><meta property="og:type" content="article"><meta property="og:url" content="https://khaiminh0401.github.io/engineering-portfolio/architecture/">
+<link rel="canonical" href="https://khaiminh0401.github.io/engineering-portfolio/architecture/"><link rel="icon" href="/engineering-portfolio/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/engineering-portfolio/assets/style.css">
+</head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="/engineering-portfolio/" aria-label="Dao Khai Minh home"><span class="brand-mark">DKM<span></span></span><span>DAO KHAI MINH<small>SOFTWARE ENGINEER</small></span></a>
+<button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">+</span></button>
+<nav id="navigation" aria-label="Main navigation"><a href="/engineering-portfolio/#work">Work</a><a href="/engineering-portfolio/#writing">Case studies</a><a href="/engineering-portfolio/#experience">Experience</a><a href="/engineering-portfolio/#contact">Contact</a><a class="nav-resume" href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Resume <span aria-hidden="true">↗</span></a></nav></header>
+
+<main id="main"><div class="article-hero wrap"><a class="back-link" href="/engineering-portfolio/#writing">← Back to portfolio</a><p class="eyebrow">ENGINEERING NOTES</p><h1>Architecture views</h1><div class="article-meta"><span>DAO KHAI MINH</span><span>Evidence and limitations included</span><a href="https://github.com/khaiminh0401/engineering-portfolio/blob/main/architecture/README.md">Read on GitHub ↗</a></div></div>
+<div class="article-grid wrap"><aside class="article-toc"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Article contents"><a href="#implemented-flowdesk-foundation">Implemented FlowDesk foundation</a><a href="#proposed-performance-investigation">Proposed performance investigation</a><a href="#proposed-llm-workflow">Proposed LLM workflow</a></nav><a class="toc-evidence" href="/engineering-portfolio/evidence.html">Evidence registry ↗</a></aside><article class="prose"><p><a href="/engineering-portfolio/">Portfolio</a> · <a href="/engineering-portfolio/projects/flowdesk.html">FlowDesk audit</a> · <a href="/engineering-portfolio/adr/">Decision index</a></p>
+<h2 id="implemented-flowdesk-foundation">Implemented FlowDesk foundation</h2>
+<p>Repository-supported at <code>d4b7895e4722e565c32b62d2ee162f610e5bc59e</code>. This view describes local development, not a production topology. The business module boundaries are planned.</p>
+<pre class="mermaid" aria-label="Architecture diagram">flowchart LR
+    User[Browser user] --&gt; SPA[Angular SPA and lazy dashboard]
+    SPA --&gt; Proxy[Angular development proxy]
+    Proxy --&gt; Info[Spring Boot info endpoint]
+    Proxy --&gt; Health[Actuator health endpoint]
+    Health --&gt; DB[(PostgreSQL 17)]
+    Migration[Flyway V1 at startup] --&gt; DB</pre>
+<p>The info endpoint returns static application/stage information; it does not query <code>app_users</code>. The health check reflects datasource availability. Flyway creates schema groundwork. There is no implemented business service, authentication boundary or deployed microservice network in this diagram.</p>
+<p>Sources: <a href="https://github.com/khaiminh0401/flowdesk/blob/d4b7895e4722e565c32b62d2ee162f610e5bc59e/apps/web/src/app/features/dashboard/system-status.service.ts">connection service</a>, <a href="https://github.com/khaiminh0401/flowdesk/blob/d4b7895e4722e565c32b62d2ee162f610e5bc59e/apps/api/src/main/resources/application.yml">API configuration</a>, <a href="https://github.com/khaiminh0401/flowdesk/blob/d4b7895e4722e565c32b62d2ee162f610e5bc59e/docker-compose.yml">local database setup</a>.</p>
+<h2 id="proposed-performance-investigation">Proposed performance investigation</h2>
+<p>This diagram is an observation map for a future sanitized performance study. It is not the VNPT architecture or the current FlowDesk request path.</p>
+<pre class="mermaid" aria-label="Architecture diagram">flowchart LR
+    Load[Controlled offered load] --&gt; API[API request and queue timing]
+    API --&gt; Pool[Connection acquisition timing]
+    Pool --&gt; SQL[Query and lock timing]
+    API --&gt; Dependency[Downstream timing if present]
+    API -.-&gt; Metrics[Correlated traces and metrics]
+    Pool -.-&gt; Metrics
+    SQL -.-&gt; Metrics
+    Dependency -.-&gt; Metrics</pre>
+<p>Measure where requests wait before changing queries, concurrency, pool limits or caching. See <a href="/engineering-portfolio/case-studies/backend-api-performance.html">backend case study</a>.</p>
+<h2 id="proposed-llm-workflow">Proposed LLM workflow</h2>
+<p>Proposed for the <a href="/engineering-portfolio/case-studies/llm-application-integration.html">LLM case study</a>; no public runtime implementation is claimed.</p>
+<pre class="mermaid" aria-label="Architecture diagram">sequenceDiagram
+    actor User
+    participant App as Application service
+    participant Auth as Authorization
+    participant Data as Approved context source
+    participant Model as Model adapter
+    participant Check as Output validation
+    User-&gt;&gt;App: Request a draft
+    App-&gt;&gt;Auth: Check operation and context permissions
+    alt Access allowed
+        App-&gt;&gt;Data: Read permitted context
+        Data--&gt;&gt;App: Minimal scoped context
+        App-&gt;&gt;Model: Versioned prompt within deadline
+        Model--&gt;&gt;App: Candidate output or provider failure
+        App-&gt;&gt;Check: Check schema and business constraints
+        Check--&gt;&gt;App: Validated draft or bounded failure
+        App--&gt;&gt;User: Reviewable draft or fallback state
+    else Access denied
+        App--&gt;&gt;User: Deny without model invocation
+    end</pre>
+<p>User acceptance and persistence are separate: re-authorize when applying a draft. Context content and model output cannot change access policy. The context source may be direct records; RAG is optional and must have explicit evidence before being described as implemented.</p>
+<p>Editable standalone Mermaid sources live in <a href="/engineering-portfolio/assets/diagrams/">assets/diagrams</a>. The Markdown views are canonical; synchronize sources if changing a diagram.</p>
+</article></div>
+<section class="article-next wrap"><p class="eyebrow">KEEP EXPLORING</p><a href="/engineering-portfolio/#writing">More engineering case studies <span>↗</span></a><a href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Download resume <span>↓</span></a></section></main>
+<footer class="site-footer"><a href="/engineering-portfolio/">DAO KHAI MINH</a><span>Java · Spring Boot · Angular</span><a href="https://github.com/khaiminh0401/engineering-portfolio">View portfolio source <span aria-hidden="true">↗</span></a><span>© 2026</span></footer>
+<script type="module" src="/engineering-portfolio/assets/site.js"></script><script type="module" src="/engineering-portfolio/assets/diagrams.js"></script>
+</body></html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Final portfolio audit | Dao Khai Minh</title><meta name="description" content="Final portfolio audit. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio.">
+<meta name="theme-color" content="#153d37"><meta property="og:title" content="Final portfolio audit | Dao Khai Minh"><meta property="og:description" content="Final portfolio audit. Engineering notes and evidence from Dao Khai Minh&#39;s Java, Spring Boot and Angular portfolio."><meta property="og:type" content="article"><meta property="og:url" content="https://khaiminh0401.github.io/engineering-portfolio/AUDIT.html">
+<link rel="canonical" href="https://khaiminh0401.github.io/engineering-portfolio/AUDIT.html"><link rel="icon" href="/engineering-portfolio/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/engineering-portfolio/assets/style.css">
+</head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="/engineering-portfolio/" aria-label="Dao Khai Minh home"><span class="brand-mark">DKM<span></span></span><span>DAO KHAI MINH<small>SOFTWARE ENGINEER</small></span></a>
+<button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">+</span></button>
+<nav id="navigation" aria-label="Main navigation"><a href="/engineering-portfolio/#work">Work</a><a href="/engineering-portfolio/#writing">Case studies</a><a href="/engineering-portfolio/#experience">Experience</a><a href="/engineering-portfolio/#contact">Contact</a><a class="nav-resume" href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Resume <span aria-hidden="true">↗</span></a></nav></header>
+
+<main id="main"><div class="article-hero wrap"><a class="back-link" href="/engineering-portfolio/#writing">← Back to portfolio</a><p class="eyebrow">ENGINEERING NOTES</p><h1>Final portfolio audit</h1><div class="article-meta"><span>DAO KHAI MINH</span><span>Evidence and limitations included</span><a href="https://github.com/khaiminh0401/engineering-portfolio/blob/main/AUDIT.md">Read on GitHub ↗</a></div></div>
+<div class="article-grid wrap"><aside class="article-toc"><p class="eyebrow">ON THIS PAGE</p><nav aria-label="Article contents"><a href="#outcome-and-scope">Outcome and scope</a><a href="#files-created-or-modified">Files created or modified</a><a href="#discovery-and-evidence-used">Discovery and evidence used</a><a href="#assumptions">Assumptions</a><a href="#unsupported-claims-avoided">Unsupported claims avoided</a><a href="#quality-review">Quality review</a><a href="#verification-record">Verification record</a><a href="#missing-information-and-remaining-todos">Missing information and remaining TODOs</a><a href="#recommended-next-actions">Recommended next actions</a><a href="#backend-case-study-follow-up--31-october-2026">Backend case-study follow-up — 31 October 2026</a><a href="#reviewed-cv-follow-up--31-october-2026">Reviewed CV follow-up — 31 October 2026</a><a href="#github-pages-follow-up--31-october-2026">GitHub Pages follow-up — 31 October 2026</a></nav><a class="toc-evidence" href="/engineering-portfolio/evidence.html">Evidence registry ↗</a></aside><article class="prose"><p><a href="/engineering-portfolio/">Portfolio</a> · <a href="/engineering-portfolio/evidence.html">Evidence registry</a> · <a href="/engineering-portfolio/traceability.html">Traceability</a> · <a href="/engineering-portfolio/BACKLOG.html">Backlog</a></p>
+<p>Prepared 31 October 2026 for DAO KHAI MINH, targeting Middle Full-Stack Software Engineer roles with Java, Spring Boot and Angular.</p>
+<h2 id="outcome-and-scope">Outcome and scope</h2>
+<p>Prepared the profile README, a separate engineering portfolio, three ten-section case-study drafts, an audited FlowDesk description, three architecture diagrams, a resume-to-evidence matrix, a reusable template and an improvement backlog. Professional details unavailable in the brief remain explicitly unverified or missing. No FlowDesk application code or documentation was modified. At the initial documentation-delivery checkpoint, no remote repository had been changed and nothing had been pushed, merged, published or made public. The candidate subsequently authorized pushing the portfolio to GitHub; that follow-up publishes the portfolio and opens the profile update for review without merging it.</p>
+<h2 id="files-created-or-modified">Files created or modified</h2>
+<p>The existing profile repository was cloned into the delivery directory. Only its README was replaced after reviewing the original; the original remains available in local Git history at base <code>b3df7d8242c1aa8ba1842dfb8e7d5aa924e9e1c4</code>.</p>
+<pre><code class="language-text">khaiminh0401/
+  README.md                         modified: concise professional profile
+  case-studies.md                    created: case-study index and evidence limits
+  resume.md                          created: candidate-brief-based resume draft
+
+engineering-portfolio/
+  README.md                         created: 60-second navigation and positioning
+  resume.md                          created: same resume draft for standalone use
+  evidence.md                        created: source ledger and evidence labels
+  traceability.md                    created: resume claim mapping
+  BACKLOG.md                         created: prioritized evidence/publication work
+  AUDIT.md                           created: this report
+  PUBLISHING.md                      created: local review and publication sequence
+  case-studies/
+    backend-api-performance.md       created: ten-section draft
+    angular-rendering-performance.md created: ten-section draft
+    llm-application-integration.md   created: ten-section draft
+  projects/
+    flowdesk.md                      created: commit-pinned implementation audit
+  architecture/
+    README.md                        created: three Mermaid architecture views
+  adr/
+    README.md                        created: decision index and editorial rationale
+  assets/diagrams/
+    README.md                        created: diagram index
+    flowdesk-foundation.mmd          created: implemented local foundation
+    performance-investigation.mmd   created: proposed observation map
+    llm-workflow.mmd                 created: proposed workflow
+  templates/
+    case-study-template.md           created: reusable structure/evidence checklist</code></pre>
+<p>Delivery-level files include the bundle README, publication notes, validation results, checksum manifest and ZIP snapshot. Git internals are excluded from the ZIP. Scratch evidence, source snapshots, scripts and the implementation plan are kept outside the deliverable repositories.</p>
+<h2 id="discovery-and-evidence-used">Discovery and evidence used</h2>
+<ul>
+<li>Reviewed the supplied master brief for candidate facts, responsibilities and requirements. No original resume/PDF was supplied at initial discovery; see the CV follow-up below.</li>
+<li>Inspected the initially empty working directory and searched conventional Documents, Projects, Developer and Code locations for local Git repositories. Inventoried other repositories&#39; remotes/status without modifying them or using their internal source.</li>
+<li>Reviewed prior local profile material and the current public profile README; inspected the profile&#39;s remote branches and cloned the existing repository for a local documentation branch.</li>
+<li>Read FlowDesk repository metadata, all paths in the recursive main tree, branch metadata, build/configuration, runtime API and Angular source, migration, tests, CI definition, architecture, ADRs, current-state notes and roadmap.</li>
+<li>Checked live PR #19 and main-commit metadata. PR #19 merged on 30 October 2026 into <code>d4b7895e4722e565c32b62d2ee162f610e5bc59e</code>. Handoff notes describing it as unmerged are stale. The identity/session design remains Proposed and no runtime authentication is present.</li>
+<li>Checked GitHub workflow metadata: run 41016120486 completed successfully on the audited main commit. No current local application test run, independent numerical test-count verification or benchmark is claimed.</li>
+<li><code>engineering-portfolio</code> returned 404 through the GitHub connector. It may be absent or inaccessible; the local repository has no remote.</li>
+</ul>
+<p>The <a href="/engineering-portfolio/evidence.html">source ledger</a> provides immutable citations and limitations for each evidence category.</p>
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>The supplied candidate facts and broad responsibilities are accurate statements by the candidate; independent verification was outside this task.</li>
+<li>“Present” means current as of 31 October 2026, including VNPT employment and university study.</li>
+<li>A Markdown resume based on the brief is useful until an approved original/PDF is provided. Birth year was not included in public positioning because it is unnecessary to establish engineering competence; it was not changed or inferred.</li>
+<li>Skills not explicitly tied to a demonstrated implementation are described as declared skills/exploration. Named infrastructure tools are not presented as proof of deployment ownership.</li>
+<li>Missing professional specifics are better represented as draft gaps than reconstructed accomplishments.</li>
+</ul>
+<h2 id="unsupported-claims-avoided">Unsupported claims avoided</h2>
+<p>No invented traffic volumes, latency/throughput gains, rendering improvements, Core Web Vitals results, business outcomes or production incidents. No claim that FlowDesk implements authentication, RBAC, workflow modules, a cache/broker, RAG/LLM integration, microservice deployment, Kubernetes hosting or production observability. No suggestion that merged security documentation means runtime enforcement, policy approval or successful security acceptance. Configured bundle budgets and timeouts are labeled settings, not observed performance results. Existing CI metadata is distinct from fresh local application verification.</p>
+<h2 id="quality-review">Quality review</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr><th>Perspective</th><th>Review outcome</th><th>Remaining limit</th></tr></thead><tbody><tr><td>Technical recruiter</td><td>Headline, specialization, employment context, featured project, resume and contact are immediately visible</td><td>Exact personal impact needs stronger evidence</td></tr><tr><td>Middle/senior engineer</td><td>Source-backed behavior is linked; case studies address constraints, alternatives, trade-offs and validation</td><td>Studies are proposed technical drafts where professional details are missing</td></tr><tr><td>Software architect</td><td>Modular-monolith scope, module maturity and security proposal status are explicit; diagrams separate current and proposed views</td><td>Planned boundaries have no implemented business-domain enforcement yet</td></tr><tr><td>Hiring manager</td><td>Production experience is separated from personal code; evidence matrix shows strengths and gaps</td><td>No independently verified production outcome or quantified impact is available</td></tr></tbody></table></div><p>These are editorial review perspectives applied in this task, not claims of independent human or multi-agent review.</p>
+<h2 id="verification-record">Verification record</h2>
+<ul>
+<li>Local Markdown destinations and heading fragments are checked, including independent navigation inside each repository.</li>
+<li>FlowDesk source citations are checked against the live recursive tree at the pinned commit. Repository, commit, PR and CI destinations were checked through the GitHub connector. Profile source history is also present in the local clone. Link validation uses resource metadata/path existence rather than a blanket browser crawl of every repeated URL.</li>
+<li>Contact email identity and syntax are checked; delivery was not tested. Phone, employer dates, education and role wording were compared to the supplied brief.</li>
+<li>All three case studies contain the required ten sections and explicit draft/evidence boundaries. Resume copies are checked for equality.</li>
+<li>Code fences, whitespace and credential-like patterns are checked. Manual review found no confidential employer source, customer data, infrastructure topology or local filesystem paths in the deliverables.</li>
+<li>Mermaid diagrams are checked separately with the Mermaid parser. Rendering depends on the destination viewer; no visual layout guarantee is inferred from parsing.</li>
+<li>Git review confirms a documentation branch for the existing profile and a new local portfolio repository. Application source changes and remote writes are outside the performed scope.</li>
+</ul>
+<p>Exact final counts and parser results are recorded in the delivery-level validation report. Application suites were not rerun because this task changes documentation only; recorded upstream CI is cited with that limitation.</p>
+<h2 id="missing-information-and-remaining-todos">Missing information and remaining TODOs</h2>
+<ol>
+<li>Backend follow-up now confirms the operation and investigation approach. Remaining gaps: precise failure mechanism, deployed async mechanism, safe implementation artifacts, baseline/candidate evidence and recovery verification.</li>
+<li>One Angular optimization: user journey, original implementation, actual technique, trace, device/network and before/after observations.</li>
+<li>Actual LLM workflow and responsibilities: safe provider/framework details, context authorization, output checks, fallback and evaluation evidence. Do not infer RAG or a particular framework.</li>
+<li>A concrete AI-assisted engineering example with task boundaries, reviewed diff and verification record.</li>
+<li>Original CV was subsequently supplied and reviewed; the corrected derivative is attached. Exact production ownership for skills listed without an experience example remains to be confirmed.</li>
+<li>Publication was subsequently authorized by the candidate. Recheck repository access and validate the live portfolio URLs during that follow-up; profile changes remain subject to PR review.</li>
+<li>Separate FlowDesk follow-up to reconcile stale handoff/roadmap merge status; no changes made in that repository.</li>
+</ol>
+<h2 id="recommended-next-actions">Recommended next actions</h2>
+<p>Review the generated profile and resume first. Supply safe facts for the three P0 evidence items in the <a href="/engineering-portfolio/BACKLOG.html">backlog</a>, then convert only the supported sections into retrospectives. Publication was subsequently authorized. Publish the portfolio and update the profile to its verified live links through a feature-branch review; do not merge the profile automatically. Keep proposed security and future application work separate from portfolio publication.</p>
+<h2 id="backend-case-study-follow-up--31-october-2026">Backend case-study follow-up — 31 October 2026</h2>
+<p>The candidate supplied and approved a more concrete account of multi-layer data synchronization/initialization across microservices. Updated the backend case study, portfolio index, source ledger, traceability and backlog to reflect confirmed caching, trace analysis, index-usage checks, lifecycle review and the direction of asynchronous decoupling. Background jobs versus message brokers are selection criteria based on infrastructure, workload and operational requirements; neither is asserted as the specific deployed mechanism. Section 7 explicitly labels its execution responsibilities as proposed. No metric, specific broker/cache technology, recovery guarantee or production outcome was invented. The other case studies and FlowDesk remain unchanged.</p>
+<h2 id="reviewed-cv-follow-up--31-october-2026">Reviewed CV follow-up — 31 October 2026</h2>
+<p>The candidate supplied a reviewed one-page PDF and authorized correcting the FlowDesk wording and adding the PDF to the portfolio. Added <code>assets/resume/Dao_Khai_Minh_Resume_2026.pdf</code> and linked it from the portfolio and resume overview. The only visible CV change is the FlowDesk paragraph: API connectivity, PostgreSQL/Flyway groundwork and automated tests are implemented; authentication and workspace RBAC are planned at the audited commit. Added a link from the FlowDesk heading to its public repository. The original file remains unchanged.</p>
+<p>Aligned the resume overview, Angular case-study evidence boundary, traceability and source ledger with the CV&#39;s professional Angular SSR/client optimization, .NET APIs and infrastructure-support responsibilities. Kafka, Redis, Spring Security and other skills listed without a specific professional example remain declared skills; none is inferred as the mechanism used in the backend case study.</p>
+<p>PDF verification: one page, matching body font, visual render inspected for clipping/overlap, revised paragraph extractable as text, all text outside that paragraph unchanged, and source SHA-256 unchanged (<code>16a00e4e8677d0b21f2d48f75597de21a967c717d069aaa12628d9dda1c2ed15</code>). The embedded subset font could not encode replacement text; the full matching Noto Serif font was used for the replacement. No website or GitHub Pages configuration is included in this CV update.</p>
+<h2 id="github-pages-follow-up--31-october-2026">GitHub Pages follow-up — 31 October 2026</h2>
+<p>Added a static website generated from canonical Markdown, a curated English homepage, article contents/navigation, reviewed PDF download, responsive menu, local Mermaid rendering, custom 404, sitemap and robots metadata. Source lives in <code>website/</code> on a feature branch; verified build output is published on <code>gh-pages</code>, with no source-PR auto-merge. GitHub Actions checks source PRs and main builds.</p>
+<p>The site preserves candidate-confirmed/proposed/implemented evidence boundaries and does not introduce metrics, testimonials or additional project capabilities. Desktop and mobile browser inspection found no body overflow; mobile navigation and all three architecture diagrams were checked. Renderer tests cover nested project-prefix links, README index routes, anchors/static resources and heading fragments. The generated-link checker checks all HTML pages, assets and fragments. The reviewed PDF is copied byte-for-byte into the site.</p>
+<p>Dependency audit reported zero known vulnerabilities at implementation time; this is not a permanent security guarantee. Mermaid browser modules are self-hosted and loaded only on diagram pages. No analytics, form backend, tracking service, custom domain or external font dependency is included.</p>
+</article></div>
+<section class="article-next wrap"><p class="eyebrow">KEEP EXPLORING</p><a href="/engineering-portfolio/#writing">More engineering case studies <span>↗</span></a><a href="/engineering-portfolio/assets/resume/Dao_Khai_Minh_Resume_2026.pdf" download>Download resume <span>↓</span></a></section></main>
+<footer class="site-footer"><a href="/engineering-portfolio/">DAO KHAI MINH</a><span>Java · Spring Boot · Angular</span><a href="https://github.com/khaiminh0401/engineering-portfolio">View portfolio source <span aria-hidden="true">↗</span></a><span>© 2026</span></footer>
+<script type="module" src="/engineering-portfolio/assets/site.js"></script>
+</body></html>
