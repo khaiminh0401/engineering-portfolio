@@ -5,6 +5,8 @@ Enterprise application engineering, backend performance, frontend responsiveness
 
 I work at VNPT Information Technology Center (October 2023–present). Previously, I maintained PHP/Java backend components at Fujinet Systems. My target is a middle full-stack role combining practical delivery with clear API contracts, maintainable architecture and evidence-based performance work.
 
+**[Visit the portfolio website](https://khaiminh0401.github.io/engineering-portfolio/)** · [Download Resume (PDF)](assets/resume/Dao_Khai_Minh_Resume_2026.pdf)
+
 ## Start here
 
 | Read | What it demonstrates | Evidence status |

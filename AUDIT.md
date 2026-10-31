@@ -119,3 +119,11 @@ The candidate supplied a reviewed one-page PDF and authorized correcting the Flo
 Aligned the resume overview, Angular case-study evidence boundary, traceability and source ledger with the CV's professional Angular SSR/client optimization, .NET APIs and infrastructure-support responsibilities. Kafka, Redis, Spring Security and other skills listed without a specific professional example remain declared skills; none is inferred as the mechanism used in the backend case study.
 
 PDF verification: one page, matching body font, visual render inspected for clipping/overlap, revised paragraph extractable as text, all text outside that paragraph unchanged, and source SHA-256 unchanged (`16a00e4e8677d0b21f2d48f75597de21a967c717d069aaa12628d9dda1c2ed15`). The embedded subset font could not encode replacement text; the full matching Noto Serif font was used for the replacement. No website or GitHub Pages configuration is included in this CV update.
+
+## GitHub Pages follow-up — 31 October 2026
+
+Added a static website generated from canonical Markdown, a curated English homepage, article contents/navigation, reviewed PDF download, responsive menu, local Mermaid rendering, custom 404, sitemap and robots metadata. Source lives in `website/` on a feature branch; verified build output is published on `gh-pages`, with no source-PR auto-merge. GitHub Actions checks source PRs and main builds.
+
+The site preserves candidate-confirmed/proposed/implemented evidence boundaries and does not introduce metrics, testimonials or additional project capabilities. Desktop and mobile browser inspection found no body overflow; mobile navigation and all three architecture diagrams were checked. Renderer tests cover nested project-prefix links, README index routes, anchors/static resources and heading fragments. The generated-link checker checks all HTML pages, assets and fragments. The reviewed PDF is copied byte-for-byte into the site.
+
+Dependency audit reported zero known vulnerabilities at implementation time; this is not a permanent security guarantee. Mermaid browser modules are self-hosted and loaded only on diagram pages. No analytics, form backend, tracking service, custom domain or external font dependency is included.
