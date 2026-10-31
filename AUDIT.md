@@ -96,7 +96,7 @@ Exact final counts and parser results are recorded in the delivery-level validat
 
 ## Missing information and remaining TODOs
 
-1. One sanitized backend investigation: operation, ownership, actual bottleneck/intervention, constraints, baseline/candidate evidence and rollback verification.
+1. Backend follow-up now confirms the operation and investigation approach. Remaining gaps: precise failure mechanism, deployed async mechanism, safe implementation artifacts, baseline/candidate evidence and recovery verification.
 2. One Angular optimization: user journey, original implementation, actual technique, trace, device/network and before/after observations.
 3. Actual LLM workflow and responsibilities: safe provider/framework details, context authorization, output checks, fallback and evaluation evidence. Do not infer RAG or a particular framework.
 4. A concrete AI-assisted engineering example with task boundaries, reviewed diff and verification record.
@@ -107,3 +107,7 @@ Exact final counts and parser results are recorded in the delivery-level validat
 ## Recommended next actions
 
 Review the generated profile and resume first. Supply safe facts for the three P0 evidence items in the [backlog](BACKLOG.md), then convert only the supported sections into retrospectives. Publication was subsequently authorized. Publish the portfolio and update the profile to its verified live links through a feature-branch review; do not merge the profile automatically. Keep proposed security and future application work separate from portfolio publication.
+
+## Backend case-study follow-up — 31 October 2026
+
+The candidate supplied and approved a more concrete account of multi-layer data synchronization/initialization across microservices. Updated the backend case study, portfolio index, source ledger, traceability and backlog to reflect confirmed caching, trace analysis, index-usage checks, lifecycle review and the direction of asynchronous decoupling. Background jobs versus message brokers are selection criteria based on infrastructure, workload and operational requirements; neither is asserted as the specific deployed mechanism. Section 7 explicitly labels its execution responsibilities as proposed. No metric, specific broker/cache technology, recovery guarantee or production outcome was invented. The other case studies and FlowDesk remain unchanged.

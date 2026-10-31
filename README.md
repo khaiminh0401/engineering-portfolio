@@ -10,7 +10,7 @@ I work at VNPT Information Technology Center (October 2023–present). Previousl
 | Read | What it demonstrates | Evidence status |
 |---|---|---|
 | [FlowDesk](projects/flowdesk.md) | Public source audit: architecture, schema, API, failure handling and tests | Repository-supported foundation; business workflows planned |
-| [Backend API performance](case-studies/backend-api-performance.md) | Investigation strategy for traffic spikes, SQL, pools, concurrency and caching | Candidate-confirmed experience; proposed technical details; measurements missing |
+| [Backend API performance](case-studies/backend-api-performance.md) | Caching, trace analysis, index/lifecycle review and asynchronous service decoupling | Candidate-confirmed workflow and approach; execution details and measurements incomplete |
 | [Angular rendering performance](case-studies/angular-rendering-performance.md) | Profiling, rendering boundaries, loading strategy and responsive UX | Candidate-confirmed experience plus limited FlowDesk source evidence |
 | [Production LLM integration](case-studies/llm-application-integration.md) | Authorization, context, structured output, failures and observability | Candidate-confirmed integration scope; proposed architecture; no public implementation |
 

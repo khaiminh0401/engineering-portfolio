@@ -4,7 +4,7 @@
 
 | Priority | Work item | Acceptance evidence | Dependency / boundary |
 |---|---|---|---|
-| P0 | Confirm one sanitized backend investigation | Operation, ownership, constraint, hypothesis, actual change and reproducible measurement or honest qualitative outcome | Candidate supplies safe facts; no internal code needed |
+| P0 | Complete backend implementation and outcome evidence | Workflow, caching/tracing/index/lifecycle review and async direction are confirmed; add deployed mechanism, precise failure mode and comparable validation | No production metrics or job/broker implementation inferred from selection criteria |
 | P0 | Confirm one Angular improvement | Original user journey, measured bottleneck, actual intervention, device/network and validation | Candidate confirmation; do not assume SSR or change-detection technique |
 | P0 | Confirm actual LLM integration boundaries | Permitted workflow/context, provider/framework if shareable, validation/fallback and eval example | Candidate confirmation; no production prompts or sensitive data |
 | P0 | Review the generated resume against the original | Correct employer/date/education/role wording and skill ownership; attach an approved PDF if available | Original resume not supplied |
