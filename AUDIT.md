@@ -49,7 +49,7 @@ Delivery-level files include the bundle README, publication notes, validation re
 
 ## Discovery and evidence used
 
-- Reviewed the supplied master brief for candidate facts, responsibilities and requirements. No original resume/PDF was supplied.
+- Reviewed the supplied master brief for candidate facts, responsibilities and requirements. No original resume/PDF was supplied at initial discovery; see the CV follow-up below.
 - Inspected the initially empty working directory and searched conventional Documents, Projects, Developer and Code locations for local Git repositories. Inventoried other repositories' remotes/status without modifying them or using their internal source.
 - Reviewed prior local profile material and the current public profile README; inspected the profile's remote branches and cloned the existing repository for a local documentation branch.
 - Read FlowDesk repository metadata, all paths in the recursive main tree, branch metadata, build/configuration, runtime API and Angular source, migration, tests, CI definition, architecture, ADRs, current-state notes and roadmap.
@@ -100,7 +100,7 @@ Exact final counts and parser results are recorded in the delivery-level validat
 2. One Angular optimization: user journey, original implementation, actual technique, trace, device/network and before/after observations.
 3. Actual LLM workflow and responsibilities: safe provider/framework details, context authorization, output checks, fallback and evaluation evidence. Do not infer RAG or a particular framework.
 4. A concrete AI-assisted engineering example with task boundaries, reviewed diff and verification record.
-5. Original resume and approval of the generated Markdown version; confirm which declared tools represent production ownership versus exploration.
+5. Original CV was subsequently supplied and reviewed; the corrected derivative is attached. Exact production ownership for skills listed without an experience example remains to be confirmed.
 6. Publication was subsequently authorized by the candidate. Recheck repository access and validate the live portfolio URLs during that follow-up; profile changes remain subject to PR review.
 7. Separate FlowDesk follow-up to reconcile stale handoff/roadmap merge status; no changes made in that repository.
 
@@ -111,3 +111,11 @@ Review the generated profile and resume first. Supply safe facts for the three P
 ## Backend case-study follow-up — 31 October 2026
 
 The candidate supplied and approved a more concrete account of multi-layer data synchronization/initialization across microservices. Updated the backend case study, portfolio index, source ledger, traceability and backlog to reflect confirmed caching, trace analysis, index-usage checks, lifecycle review and the direction of asynchronous decoupling. Background jobs versus message brokers are selection criteria based on infrastructure, workload and operational requirements; neither is asserted as the specific deployed mechanism. Section 7 explicitly labels its execution responsibilities as proposed. No metric, specific broker/cache technology, recovery guarantee or production outcome was invented. The other case studies and FlowDesk remain unchanged.
+
+## Reviewed CV follow-up — 31 October 2026
+
+The candidate supplied a reviewed one-page PDF and authorized correcting the FlowDesk wording and adding the PDF to the portfolio. Added `assets/resume/Dao_Khai_Minh_Resume_2026.pdf` and linked it from the portfolio and resume overview. The only visible CV change is the FlowDesk paragraph: API connectivity, PostgreSQL/Flyway groundwork and automated tests are implemented; authentication and workspace RBAC are planned at the audited commit. Added a link from the FlowDesk heading to its public repository. The original file remains unchanged.
+
+Aligned the resume overview, Angular case-study evidence boundary, traceability and source ledger with the CV's professional Angular SSR/client optimization, .NET APIs and infrastructure-support responsibilities. Kafka, Redis, Spring Security and other skills listed without a specific professional example remain declared skills; none is inferred as the mechanism used in the backend case study.
+
+PDF verification: one page, matching body font, visual render inspected for clipping/overlap, revised paragraph extractable as text, all text outside that paragraph unchanged, and source SHA-256 unchanged (`16a00e4e8677d0b21f2d48f75597de21a967c717d069aaa12628d9dda1c2ed15`). The embedded subset font could not encode replacement text; the full matching Noto Serif font was used for the replacement. No website or GitHub Pages configuration is included in this CV update.
