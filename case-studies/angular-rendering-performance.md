@@ -2,11 +2,11 @@
 
 [Portfolio](../README.md) · [Evidence](../evidence.md) · [Traceability](../traceability.md)
 
-**Draft.** Frontend architecture and rendering improvements at VNPT are candidate-confirmed. The exact intervention and performance results are missing. FlowDesk supplies public examples of lazy routing, zoneless bootstrap and explicit asynchronous states; these do not prove a measured performance gain. SSR, hydration, cache changes and larger-list optimization below are proposals or evaluation options.
+**Draft.** Frontend architecture and rendering improvements at VNPT, including Angular SSR and client-side optimization, are candidate-confirmed in the supplied CV. The exact intervention and performance results are missing. FlowDesk supplies public examples of lazy routing, zoneless bootstrap and explicit asynchronous states; these do not prove a measured performance gain. The CV confirms professional Angular SSR work but does not identify a specific optimization or its outcome. SSR design comparisons, hydration, cache changes and larger-list optimization below are proposals or evaluation options; they are not FlowDesk implementations.
 
 ## 1. Context
 
-Enterprise interfaces combine network waits, state changes and browser rendering. My confirmed professional scope includes improving frontend architecture for rendering performance and user experience. FlowDesk is a separate personal SPA with a small dashboard; its implementation can demonstrate boundary design without pretending to reproduce an employer interface.
+Enterprise interfaces combine network waits, state changes and browser rendering. My confirmed professional scope includes improving frontend architecture for rendering performance and user experience, including Angular SSR and client-side optimization. FlowDesk is a separate personal SPA with a small dashboard; its implementation can demonstrate boundary design without pretending to reproduce an employer interface.
 
 ## 2. Problem Statement
 
@@ -34,7 +34,7 @@ For a large list, test whether DOM volume, unstable identity or repeated calcula
 
 ## 6. Selected Approach
 
-The repository-supported choice in FlowDesk is a standalone SPA with lazy dashboard routing, explicit zoneless change detection and signal-based connection states. This is an observed personal-project implementation, not proof these techniques were the VNPT intervention. For professional performance work, select the smallest change tied to the measured journey. SSR/hydration are options to evaluate only if product requirements support them; they are not implemented here.
+The repository-supported choice in FlowDesk is a standalone SPA with lazy dashboard routing, explicit zoneless change detection and signal-based connection states. This is an observed personal-project implementation, not proof these techniques were the VNPT intervention. For professional performance work, select the smallest change tied to the measured journey. SSR is separately confirmed in the professional CV. SSR/hydration design choices below remain evaluation options, and neither is implemented in the audited FlowDesk source.
 
 ## 7. Implementation Details
 

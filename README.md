@@ -22,7 +22,7 @@ FlowDesk is a **personal project in development**, not an employer system. The t
 - [Resume-to-portfolio traceability](traceability.md)
 - [Architecture and diagrams](architecture/README.md)
 - [Architecture decision index](adr/README.md)
-- [Resume](resume.md)
+- [Download Resume (PDF)](assets/resume/Dao_Khai_Minh_Resume_2026.pdf) · [Resume overview](resume.md)
 - [Improvement backlog](BACKLOG.md)
 - [Final audit report](AUDIT.md)
 - [Reusable case-study template](templates/case-study-template.md)
